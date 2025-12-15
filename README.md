@@ -2,168 +2,162 @@
 > This repository is deprecated and no longer maintained.
 
      _
-    /_|      _/__/_
-   (  |/)/)()/(//(-
-   ________________
-
+     /_|      _/__/_
+    (  |/)/)()/(//(-
+    ________________
 
 Add a comment summarizing the current schema to the bottom of each
 ActiveRecord model, fixture file.
 
 If you are using Object Daddy, it`ll annotate your example files too.
 
- # == Schema Info
- #
- # Table name: line_items
- #
- #  id                  :integer(11)    not null, primary key
- #  quantity            :integer(11)    not null
- #  product_id          :integer(11)    not null
- #  unit_price          :float
- #  order_id            :integer(11)
- #
+    # == Schema Info
+    #
+    # Table name: line_items
+    #
+    #  id                  :integer(11)    not null, primary key
+    #  quantity            :integer(11)    not null
+    #  product_id          :integer(11)    not null
+    #  unit_price          :float
+    #  order_id            :integer(11)
+    #
 
-  class LineItem < ActiveRecord::Base
-    belongs_to :product
-   . . .
+     class LineItem < ActiveRecord::Base
+       belongs_to :product
+      . . .
 
-Annotates geometrical columns, geom type and srid, when using SpatialAdapter or PostgisAdapter:
+Annotates geometrical columns, geom type and srid, when using SpatialAdapter
+or PostgisAdapter:
 
- # == Schema Info
- #
- # Table name: trips
- #
- #  local           :geometry        point, 4326
- #  path            :geometry        line_string, 4326
+    # == Schema Info
+    #
+    # Table name: trips
+    #
+    #  local           :geometry        point, 4326
+    #  path            :geometry        line_string, 4326
+
+## INSTALL
+
+    sudo gem install nofxx-annotate
+
+## HOW TO USE:
 
 
-== INSTALL
+## Warning
 
-  sudo gem install nofxx-annotate
+Note that this code will blow away the initial/final comment block in your
+models if it looks like it was previously added by annotate models, so you
+don't want to add additional text to an automatically created comment block.
 
+    * * Back up your model files before using... * *
 
-== HOW TO USE:
-=======
-== Warning
-
-Note that this code will blow away the initial/final comment
-block in your models if it looks like it was previously added
-by annotate models, so you don't want to add additional text
-to an automatically created comment block.
-
-       * * Back up your model files before using... * *
-
-== Install
+## Install
 
 From rubyforge:
 
-  sudo gem install annotate
+    sudo gem install annotate
 
 From github:
 
-  gem sources -a http://gems.github.com
-  sudo gem install ctran-annotate
+    gem sources -a http://gems.github.com
+    sudo gem install ctran-annotate
 
-== Usage
+## Usage
 
 To annotate all your models:
 
-  cd /path/to/app
-  annotate
+    cd /path/to/app
+    annotate
 
 To annotate routes.rb:
 
-  annotate -r
+    annotate -r
 
 More:
 
-  annotate -h
-
+    annotate -h
 
 To migrate & annotate (TODO):
-
 
 Options:
 
 Annotate on the head of the file:
 
-  annotate -p [before|after]
+    annotate -p [before|after]
+
+## WARNING
+
+Note that this code will blow away the initial/final comment block in your
+models if it looks like it was previously added by annotate models, so you
+don't want to add additional text to an automatically created comment block.
+
+    * * Back up your model files before using... * *
+
+## LINKS
+
+*   Factory Girl => http://github.com/thoughtbot/factory_girl (NOT
+    IMPLEMENTED)
+*   Object Daddy => http://github.com/flogic/object_daddy
+
+*   SpatialAdapter => http://github.com/pdeffendol/spatial_adapter
+*   PostgisAdapter => http://github.com/nofxx/postgis_adapter
+
+## TODO
+
+*   Spec
+
+## LICENSE:
 
 
-== WARNING
-
-Note that this code will blow away the initial/final comment
-block in your models if it looks like it was previously added
-by annotate models, so you don't want to add additional text
-to an automatically created comment block.
-
-        * * Back up your model files before using... * *
-
-== LINKS
-
-* Factory Girl => http://github.com/thoughtbot/factory_girl (NOT IMPLEMENTED)
-* Object Daddy => http://github.com/flogic/object_daddy
-
-* SpatialAdapter => http://github.com/pdeffendol/spatial_adapter
-* PostgisAdapter => http://github.com/nofxx/postgis_adapter
-
-
-== TODO
-
-* Spec
-
-
-== LICENSE:
-=======
 More options:
 
-  Usage: annotate [options]
-      -d, --delete                     Remove annotations from all model files
-      -p, --position [before|after]    Place the annotations at the top (before) or the bottom (after) of the model file
-      -r, --routes                     Annotate routes.rb with the output of 'rake routes'
-      -v, --version                    Show the current version of this gem
-      -m, --show-migration             Include the migration version number in the annotation
-      -i, --show-indexes               List the table's database indexes in the annotation
-          --model-dir dir              Annotate model files stored in dir rather than app/models
+    Usage: annotate [options]
+        -d, --delete                     Remove annotations from all model files
+        -p, --position [before|after]    Place the annotations at the top (before) or the bottom (after) of the model file
+        -r, --routes                     Annotate routes.rb with the output of 'rake routes'
+        -v, --version                    Show the current version of this gem
+        -m, --show-migration             Include the migration version number in the annotation
+        -i, --show-indexes               List the table's database indexes in the annotation
+            --model-dir dir              Annotate model files stored in dir rather than app/models
 
-== LICENSE:
+## LICENSE:
 
 Released under the same license as Ruby. No Support. No Warranty.
 
-== Author:
+## Author:
 
 Original code by:
 
-  Dave Thomas -- Pragmatic Programmers, LLC
+    Dave Thomas -- Pragmatic Programmers, LLC
 
 AnnotateModels mods by:
 
-  Alexander Semyonov ( http://github.com/rotuka/annotate_models )
+    Alexander Semyonov ( http://github.com/rotuka/annotate_models )
 
 AnnotateRoutes originally by:
 
-  Gavin Montague ( http://github.com/govan/annotate-routes )
+    Gavin Montague ( http://github.com/govan/annotate-routes )
+
+## Forked from:
+
+    http://github.com/ctran/annotate_models
+
+## Modifications
+    - alex@pivotallabs.com
 
 
-== Forked from:
 
-  http://github.com/ctran/annotate_models
-
-
-== Modifications
- - alex@pivotallabs.com
-=======
 Modifications by:
 
- - Alex Chaffee - http://github.com/alexch - alex@pivotallabs.com
- - Cuong Tran - http://github.com/ctran
- - Jack Danger - http://github.com/JackDanger
- - Michael Bumann - http://github.com/bumi
- - Henrik Nyh - http://github.com/henrik
- - Marcos Piccinini - http://github.com/nofxx
+    - Alex Chaffee - http://github.com/alexch - alex@pivotallabs.com
+    - Cuong Tran - http://github.com/ctran
+    - Jack Danger - http://github.com/JackDanger
+    - Michael Bumann - http://github.com/bumi
+    - Henrik Nyh - http://github.com/henrik
+    - Marcos Piccinini - http://github.com/nofxx
 
 and many others that I may have missed to add.
 
-== This fork
+## This fork
 
-  Marcos Piccinini ( http://github.com/nofxx/annotate )
+    Marcos Piccinini ( http://github.com/nofxx/annotate )
