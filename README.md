@@ -1,7 +1,5 @@
-> [\!CAUTION]
-> This repository is deprecated and no longer maintained.
-
-     _
+> [!CAUTION]
+> This repository is deprecated and no longer maintained.     _
      /_|      _/__/_
     (  |/)/)()/(//(-
     ________________
